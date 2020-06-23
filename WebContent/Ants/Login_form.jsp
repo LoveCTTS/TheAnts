@@ -28,23 +28,41 @@
 <body>
 <div id="divPosition">
     
-  
-<form action = "Login_process.jsp" method ="get">
+<script>
+	function mySubmit(index){
+		if(index==1){
+			document.myForm.action='Login_process.jsp';
+		}
+		if(index==2){
+			document.myForm.action='Join_form.jsp';
+		}
+		document.myForm.submit();
+		
+	}
+</script>  
+<form name = 'myForm' method ='post'>
 	<table>
 <caption> 로그인 </caption>
 		<tr>
 			<th>아이디</th>
 			<td><input type ="text" name = "user_id" autofocus="autofocus" required="required"/></td>
 		</tr>
+		
 		<tr>
 			<th>비밀번호</th>
 			<td><input type ="password" name = "user_pw" required="required"/></td>
 		</tr>
+		
 		<tr>
 			<th></th>
-			<td><input type ="submit" value = "login"/></td>
+			<td><input type = 'button' onClick='mySubmit(1)' value="Login"/></td>
+			
 		</tr>
-
+		
+		<tr>
+		<th></th>
+		<td><input type = 'button' onClick='mySubmit(2)' value="Join"/></td>
+		</tr>
 
 	</table>
 
