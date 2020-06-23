@@ -9,9 +9,8 @@
 
 <%
 	String user_id = request.getParameter("user_id");
-String user_pw = request.getParameter("user_pw");
-user_pw = DigestUtils.sha512Hex(user_pw);
-String user_name = null;
+	String user_pw = request.getParameter("user_pw");
+	user_pw = DigestUtils.sha512Hex(user_pw);
 %>
 
 <!DOCTYPE html>
@@ -41,13 +40,13 @@ body {
 <body>
 
 	<%
-		Connection conn = null;
+	Connection conn = null;
 	PreparedStatement stm = null;
 	ResultSet rs = null;
 	StringBuffer sql = new StringBuffer();
-	sql.append(" select user_id, user_pw ");
-	sql.append(" from personal_info");
-	sql.append(" where  user_id= ? and user_pw= ?");
+	sql.append("select user_id, user_pw"); //띄어쓰기 잘했는지 보세요.
+	sql.append(" from INFO");
+	sql.append(" where user_id = ? and user_pw = ? ");
 
 	try {// 서버 프로세스에 연결
 		Class.forName("oracle.jdbc.OracleDriver");
@@ -75,10 +74,10 @@ body {
 
 			<caption>최고기록 :</caption>
 			<br> <br> <br> <br> <br> <br>
-			<form action="game_start.jsp">
+			<form action="Game_start.jsp">
 				<button type="submit">게임시작</button>
 			</form>
-			<form action="ranking.jsp" method="post">
+			<form action="Ranking.jsp" method="post">
 				<br>
 
 				<button type="submit">랭킹</button>

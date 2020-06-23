@@ -34,7 +34,7 @@
 <caption> 로그인 </caption>
 		<tr>
 			<th>아이디</th>
-			<td><input type ="text" name = "user_id" autofocus required="required"/></td>
+			<td><input type ="text" name = "user_id" autofocus="autofocus" required="required"/></td>
 		</tr>
 		<tr>
 			<th>비밀번호</th>
