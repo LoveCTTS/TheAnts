@@ -41,7 +41,7 @@
 		
 	}
 </script>  
-<div class="p-2 mb-2 bg-warning text-dark"> <ion-icon name="bug-sharp"></ion-icon> The Ants Game </div>
+<div class="p-2 mb-2 bg-warning text-dark"> <ion-icon name="bug-sharp"></ion-icon> The Ants Game. </div>
 
 
 	<table>
