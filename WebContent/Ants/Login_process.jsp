@@ -25,10 +25,10 @@ body {
 }
 
 #divPosition {
-	background-color : rgba(66,33,00,0.7);
-	border: 1px solid #5D5D5D;
+	background-color : rgba(255,255,255,0.5);
+	
 	position: absolute;
-	height: 380px;
+	height: 360px;
 	width: 400px;
 	margin: -150px 0px 0px -200px;
 	top: 40%;
@@ -53,7 +53,7 @@ body {
 
 	try {// 서버 프로세스에 연결
 		Class.forName("oracle.jdbc.OracleDriver");
-		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "Ants", "1234");
+		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "mproject1", "1234");
 		stm = conn.prepareStatement(sql.toString());
 		stm.setString(1, user_id);
 		stm.setString(2, user_pw);
@@ -78,9 +78,9 @@ body {
 			
 			
 				
-  				<center><h1 class="display-4">최고기록 </h1></center>
+  				<center><h1 class="lead">최고기록 </h1></center>
   				<br>
-  				<center><h1 class = ><%=rs.getInt("best_record")/60 %>분 <%=rs.getInt("best_record")-(rs.getInt("best_record")/60)*60 %>초</h1></center>
+  				<center><h1 class = "text-primary display-4"><%=rs.getInt("best_record")/60 %>분 <%=rs.getInt("best_record")-(rs.getInt("best_record")/60)*60 %>초</h1></center>
   				
 		
 			<br><br><br><br>
@@ -91,7 +91,7 @@ body {
   			<button type="submit" class="btn btn-success float-left">게임시작</button>
   			</form>
   			
-  			<form action="Ranking.jsp" method= "post">
+  			<form action="Ranking.jsp?user_id = <%=user_id %>,user_pw=<%=user_pw %>" user_" method= "post">
   			<button type="submit" class="btn btn-warning float-right">랭킹</button>
   			</form>
 			
@@ -107,9 +107,10 @@ body {
 		alert('아이디 혹은 비밀번호가 틀립니다.');
 		location = history.back();
 	</script>
+	<%} %>
 
 	<%
-		}
+		
 	} catch (Exception e) {
 		e.printStackTrace();
 	} finally {

@@ -8,6 +8,8 @@
 	pageEncoding="UTF-8"%>
 
 <%
+	String user_id = request.getParameter("user_id");
+	String user_pw = request.getParameter("user_pw");
 	int Place = 1; //랭킹 등수 표기를 위한 변수
 	Connection conn = null;
 	Statement stmt = null;
@@ -17,7 +19,7 @@
 	sql.append(" from Ranking");
 	try {
 		Class.forName("oracle.jdbc.OracleDriver");
-		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "Ants", "1234");
+		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "mproject1", "1234");
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery(sql.toString());
 %>
@@ -46,10 +48,10 @@ body {
 
 #divPosition {
 	
-	background : white;
+	background-color : rgba(255,255,255,0.5); 
 	position: absolute;
-	height: 310px;
-	width: 400px;
+	height: 500px;
+	width: 700px;
 	margin: -150px 0px 0px -200px;
 	top: 50%;
 	left: 50%;
@@ -72,7 +74,7 @@ body {
 	<center>
   	<h1 class="display-4">Ranking</h1>
   	</center>
-		
+  	
 	
     <center>
    <table border="2" background:black>
@@ -96,16 +98,17 @@ body {
 
 </table>
 </center>
-    <br><br><br><br><br>
-  	<div class="bg-white clearfix">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+  	
     <form action="Game_start.jsp">
-		<button type="submit" class = "btn btn-light float-left">게임시작</button>
+		<button type="submit" class = "btn btn-success float-left">게임시작</button>
 				
 	</form>
-	<form action = "Login_process.jsp">
-		<button type="submit" class = "btn btn-light float-right">메뉴로 돌아가기</button>
+	<form action = "Login_form.jsp">
+		
+		<button type="submit" class = "btn btn-warning float-right">홈으로 돌아가기</button>
 	</form>
-	</div>
+	
 			
 			
 <%
