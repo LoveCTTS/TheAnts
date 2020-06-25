@@ -10,3 +10,7 @@ where user_pw = 'D404559F602EAB6FD602AC7680DACBFAADD13630335E951F097AF3900E9DE17
 select * from ranking;
 
 insert into 
+
+select * from FILED_2;
+
+select best_record from info;

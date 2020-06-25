@@ -25,26 +25,29 @@ body {
 }
 
 #divPosition {
+	background: white;
 	border: 1px solid #5D5D5D;
 	position: absolute;
-	height: 300px;
+	height: 455px;
 	width: 400px;
 	margin: -150px 0px 0px -200px;
-	top: 50%;
+	top: 40%;
 	left: 50%;
 	padding: 5px;
 }
 </style>
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
+<img src="oasis.jpg">
 
 	<%
 	Connection conn = null;
 	PreparedStatement stm = null;
 	ResultSet rs = null;
 	StringBuffer sql = new StringBuffer();
-	sql.append("select user_id, user_pw"); //띄어쓰기 잘했는지 보세요.
+	sql.append("select user_id, user_pw, best_record"); //띄어쓰기 잘했는지 보세요.
 	sql.append(" from INFO");
 	sql.append(" where user_id = ? and user_pw = ? ");
 
@@ -58,30 +61,40 @@ body {
 
 		if (rs.next()) { // 아이디 비번 일치
 	%>
-	<center>
-	<h1>MENU</h1>
-	</center>
+	
+	
 	<div id="divPosition">
 
 
-
-			<caption>
+			<center>
+			<h1>MENU</h1>
+			</center>
+			<caption><center>
 				<%
 					out.println("(" + user_id + ") 님이 로그인했습니다.");
 				%>
+			</center>	
 			</caption>
-			<br> <br> <br>
-
-			<caption>최고기록 :</caption>
-			<br> <br> <br> <br> <br> <br>
-			<form action="Game_start.jsp">
-				<button type="submit">게임시작</button>
-			</form>
-			<form action="Ranking.jsp" method="post">
-				<br>
-
-				<button type="submit">랭킹</button>
-			</form>
+			
+			<div class="jumbotron">
+				
+  				<h1 class="display-4">최고기록 :<br><%=rs.getInt("best_record")/60 %>분 <%=rs.getInt("best_record")-(rs.getInt("best_record")/60)*60 %>초</h1>
+  				
+			</div>
+			<br> 
+			
+			
+			<div class="bg-white clearfix">
+			<form action="Game_start.jsp" method = "post">
+  			<button type="submit" class="btn btn-secondary float-left">게임시작</button>
+  			</form>
+  			
+  			<form action="Ranking.jsp" method= "post">
+  			<button type="submit" class="btn btn-secondary float-right">랭킹</button>
+  			</form>
+			</div>
+		
+			
 
 	</div>
 	<%
@@ -118,6 +131,9 @@ body {
 	%>
 
 		
-		
+<script src="https://unpkg.com/ionicons@5.1.0/dist/ionicons.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>		
 </body>
 </html>

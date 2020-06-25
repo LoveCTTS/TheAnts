@@ -10,7 +10,7 @@
 key_form.key_code.value += event.keyCode+';';
 key_form.key_str.value += String.fromCharCode(event.keyCode)+';';}</script>
 
-
+<% int a=0; %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,19 +25,44 @@ body {
 	font-family: 'Jua', sans-serif;
 }
 </style>
-<script type = "text/javascript">
+<script type="text/javascript">
+window.onload=function(){
+	document.getElementById('btnRight').onclick = function(){
+		startCount();
+	}
+	document.getElementById('btnLeft').onclick = function(){
+		startCount();
+	}
+	document.getElementById('btnUp').onclick = function(){
+		startCount();
+	}
+	document.getElementById('btnDown').onclick = function(){
+		startCount();
+	}
 
+}
 
-
+function startCount() {
+	if (isNaN(parseInt(document.getElementById('Count').innerHTML)) == true) {
+		document.getElementById('Count').innerHTML = '1';
+	} else {
+		document.getElementById('Count').innerHTML = parseInt(document.getElementById('Count').innerHTML) + 1;
+	}
+}
 </script>
-
 </head>
-<body>
 
-<img src = "right.jpg" onClick='39' >
-<img src = "left.jpg" onClick = '37' >
-<img src = "up.jpg">
-<img src = "down.jpg">
+
+
+<body>
+<h1><div id="Count"></div></h1>
+<img src="right.jpg"  id="btnRight" style="cursor:pointer;">
+<img src="left.jpg"  id="btnLeft" >
+<img src="up.jpg" id="btnUp">
+<img src="down.jpg" id="btnDown">
+
+
+<input type = "button" value = "게임시작">
 
 
 

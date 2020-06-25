@@ -13,7 +13,7 @@
 	Statement stmt = null;
 	ResultSet rs = null;
 	StringBuffer sql = new StringBuffer();
-	sql.append(" select user_id, c_time");
+	sql.append(" select user_id, c_time, count");
 	sql.append(" from Ranking");
 	sql.append(" order by c_time");
 	try {
@@ -55,27 +55,41 @@ body {
 	left: 50%;
 	padding: 5px;
 }
+
 </style>
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
+
 <body>
-<center>
-<h1>Ranking</h1>
-</center>
+
+
+<img src="oasis.jpg">
+
+	
 <div id="divPosition">
+	
+	<center>
+  	<h1 class="display-4">Ranking</h1>
+  	</center>
+		
+	
     
-   <table border="1">
-<tr>
-	<th>등수</th>
-	<th>이름</th>
-	<th>기록</th>
-</tr>
+   <table border="2" background:black>
+	<tr class="lead" class = "text-white-Large">
+	
+		<th>등수</th>
+		<th>이름</th>
+		<th>기록</th>
+		<th>이동 횟수</th>
+	</tr>
 
 <%		while(rs.next()) { %>
-<tr>
+<tr class = "lead">
 	<td><%=i++ %></td>
 	<td><%=rs.getString("user_id") %></td>
 	<td><%=rs.getString("c_time") %></td>
+	<td><%=rs.getInt("count") %>
 </tr>
 <%} %>
 
@@ -83,13 +97,11 @@ body {
 </table>
     
   
-  <form action="game_start.jsp">
-				<button type="submit">게임시작</button>
+  <form action="Game_start.jsp">
+				<button type="submit" class = "btn btn-light">게임시작</button>
 			</form>
-</div>
-</body>
-</html>
-
+			
+			
 <%
 		
 	} catch (Exception e) {
@@ -112,4 +124,13 @@ body {
 			}
 
 	}
-	%>
+	%>			
+</div>
+
+<script src="https://unpkg.com/ionicons@5.1.0/dist/ionicons.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
+
