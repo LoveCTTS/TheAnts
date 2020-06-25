@@ -39,26 +39,11 @@
 		document.myForm.submit();
 		
 	}
-
 </script>
 
 <form name = 'myForm' method ='post'>
-
-</script>  
-<div class="p-2 mb-2 bg-warning text-dark"> <ion-icon name="bug-sharp"></ion-icon> The Ants Game </div>
-
-
-
 	<table>
-
 		<div class="p-2 mb-2 bg-link text-dark"> <ion-icon name="bug-sharp"></ion-icon> The Ants Game </div>  
-
-	<button type="button" class="close" aria-label="Close">
-  <span aria-hidden="true">&times;</span>
-</button>
-
-<%-- <caption> 로그인 </caption> --%>
-
 		<tr>
 			<th>아이디</th>
 			<td><input type ="text" name = "user_id" autofocus="autofocus" required="required"/></td>
@@ -71,31 +56,19 @@
 		
 		<tr>
 			<th></th>
-
 			<td><input type = 'button' onClick='mySubmit(1)' class = "btn btn-light" value="Login"/></td>
-
-			<td><input type = 'button' onClick='mySubmit(1)' class="btn btn-success" value="Login"/></td>
-			
-
 			
 		</tr>
 		
 		<tr>
 		<th></th>
-
 		<td><input type = 'button' onClick='mySubmit(2)' class = "btn btn-light" value="Join"/></td>
-
-		<td><input type = 'button' onClick='mySubmit(2)' class="btn btn-warning" value="Join"/></td>
-
 		</tr>
 
 	</table>
 
 </form>
 </div>
-
-
-
 
 <script src="https://unpkg.com/ionicons@5.1.0/dist/ionicons.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
