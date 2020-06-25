@@ -8,14 +8,13 @@
 	pageEncoding="UTF-8"%>
 
 <%
-	int i = 1;
+	int Place = 1; //랭킹 등수 표기를 위한 변수
 	Connection conn = null;
 	Statement stmt = null;
 	ResultSet rs = null;
 	StringBuffer sql = new StringBuffer();
-	sql.append(" select user_id, c_time, count");
+	sql.append("select user_id, best_record, count");
 	sql.append(" from Ranking");
-	sql.append(" order by c_time");
 	try {
 		Class.forName("oracle.jdbc.OracleDriver");
 		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "Ants", "1234");
@@ -47,8 +46,9 @@ body {
 
 #divPosition {
 	
+	background : white;
 	position: absolute;
-	height: 300px;
+	height: 310px;
 	width: 400px;
 	margin: -150px 0px 0px -200px;
 	top: 50%;
@@ -74,7 +74,7 @@ body {
   	</center>
 		
 	
-    
+    <center>
    <table border="2" background:black>
 	<tr class="lead" class = "text-white-Large">
 	
@@ -86,20 +86,26 @@ body {
 
 <%		while(rs.next()) { %>
 <tr class = "lead">
-	<td><%=i++ %></td>
+	<td><%=Place++ %></td> 
 	<td><%=rs.getString("user_id") %></td>
-	<td><%=rs.getString("c_time") %></td>
+	<td><%=rs.getInt("best_record")/60 %>분 <%=rs.getInt("best_record")-(rs.getInt("best_record")/60)*60 %>초</td>
 	<td><%=rs.getInt("count") %>
 </tr>
 <%} %>
 
 
 </table>
-    
-  
-  <form action="Game_start.jsp">
-				<button type="submit" class = "btn btn-light">게임시작</button>
-			</form>
+</center>
+    <br><br><br><br><br>
+  	<div class="bg-white clearfix">
+    <form action="Game_start.jsp">
+		<button type="submit" class = "btn btn-light float-left">게임시작</button>
+				
+	</form>
+	<form action = "Login_process.jsp">
+		<button type="submit" class = "btn btn-light float-right">메뉴로 돌아가기</button>
+	</form>
+	</div>
 			
 			
 <%

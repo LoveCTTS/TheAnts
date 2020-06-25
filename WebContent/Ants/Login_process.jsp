@@ -25,10 +25,10 @@ body {
 }
 
 #divPosition {
-	background: white;
+	background-color : rgba(66,33,00,0.7);
 	border: 1px solid #5D5D5D;
 	position: absolute;
-	height: 455px;
+	height: 380px;
 	width: 400px;
 	margin: -150px 0px 0px -200px;
 	top: 40%;
@@ -47,9 +47,9 @@ body {
 	PreparedStatement stm = null;
 	ResultSet rs = null;
 	StringBuffer sql = new StringBuffer();
-	sql.append("select user_id, user_pw, best_record"); //띄어쓰기 잘했는지 보세요.
-	sql.append(" from INFO");
-	sql.append(" where user_id = ? and user_pw = ? ");
+	sql.append("select I.user_id, R.best_record"); //띄어쓰기 잘했는지 보세요.
+	sql.append(" from info I join ranking R");
+	sql.append(" on I.user_id = ? and I.user_pw = ?");
 
 	try {// 서버 프로세스에 연결
 		Class.forName("oracle.jdbc.OracleDriver");
@@ -71,28 +71,30 @@ body {
 			</center>
 			<caption><center>
 				<%
-					out.println("(" + user_id + ") 님이 로그인했습니다.");
+					out.println("(" + rs.getString("user_id") + ") 님이 로그인했습니다.");
 				%>
 			</center>	
 			</caption>
 			
-			<div class="jumbotron">
+			
 				
-  				<h1 class="display-4">최고기록 :<br><%=rs.getInt("best_record")/60 %>분 <%=rs.getInt("best_record")-(rs.getInt("best_record")/60)*60 %>초</h1>
+  				<center><h1 class="display-4">최고기록 </h1></center>
+  				<br>
+  				<center><h1 class = ><%=rs.getInt("best_record")/60 %>분 <%=rs.getInt("best_record")-(rs.getInt("best_record")/60)*60 %>초</h1></center>
   				
-			</div>
-			<br> 
+		
+			<br><br><br><br>
 			
 			
-			<div class="bg-white clearfix">
+			
 			<form action="Game_start.jsp" method = "post">
-  			<button type="submit" class="btn btn-secondary float-left">게임시작</button>
+  			<button type="submit" class="btn btn-success float-left">게임시작</button>
   			</form>
   			
   			<form action="Ranking.jsp" method= "post">
-  			<button type="submit" class="btn btn-secondary float-right">랭킹</button>
+  			<button type="submit" class="btn btn-warning float-right">랭킹</button>
   			</form>
-			</div>
+			
 		
 			
 
