@@ -91,7 +91,7 @@ body {
   			<button type="submit" class="btn btn-success float-left">게임시작</button>
   			</form>
   			
-  			<form action="Ranking.jsp?user_id = <%=user_id %>,user_pw=<%=user_pw %>" user_" method= "post">
+  			<form action="Ranking.jsp" method= "post">
   			<button type="submit" class="btn btn-warning float-right">랭킹</button>
   			</form>
 			

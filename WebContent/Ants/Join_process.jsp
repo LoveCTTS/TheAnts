@@ -69,7 +69,7 @@ location.href='Login_form.jsp';
 <% }else { %> 
 <script type="text/javascript">
 alert('회원가입에 실패하였습니다.');
-location.href = 'Login_form.jsp';
+location.href = 'Join_form.jsp';
 </script>
 <%} %>	
 </body>

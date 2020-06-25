@@ -8,8 +8,6 @@
 	pageEncoding="UTF-8"%>
 
 <%
-	String user_id = request.getParameter("user_id");
-	String user_pw = request.getParameter("user_pw");
 	int Place = 1; //랭킹 등수 표기를 위한 변수
 	Connection conn = null;
 	Statement stmt = null;
@@ -98,7 +96,7 @@ body {
 
 </table>
 </center>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
   	
     <form action="Game_start.jsp">
 		<button type="submit" class = "btn btn-success float-left">게임시작</button>

@@ -43,7 +43,7 @@
 
 <form name = 'myForm' method ='post'>
 	<table>
-		<div class="p-2 mb-2 bg-link text-dark"> <ion-icon name="bug-sharp"></ion-icon> The Ants Game </div>  
+		<div class="p-2 mb-2 bg-link text-dark"> <ion-icon name="bug-sharp"></ion-icon> The Ants Game. </div>  
 		<tr>
 			<th>아이디</th>
 			<td><input type ="text" name = "user_id" autofocus="autofocus" required="required"/></td>
