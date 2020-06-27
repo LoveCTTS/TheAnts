@@ -5,11 +5,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <% 
-    
+   // String name = request.getParameter("name");
+ 	
+    String name = "test";
     
     String evt = "1";
-   
-
+  
 	boolean result = false;
     Connection conn = null;
     PreparedStatement pstmt = null;
@@ -17,7 +18,7 @@
 	StringBuffer sql = new StringBuffer();
 	sql.append(" update filed_2 set");
 	sql.append(" evt = 0");
-	sql.append(" where evt = ? ");
+	sql.append(" where evt = ?");
 
 try {
 	Class.forName("oracle.jdbc.OracleDriver");
@@ -25,6 +26,7 @@ try {
 		"jdbc:oracle:thin:@localhost:1521:xe", "Ants", "1234");
 	pstmt= conn.prepareStatement(sql.toString());
 	pstmt.setString(1, evt);
+	
 	if (pstmt.executeUpdate() > 0) {
 		result = true;
 	}
@@ -54,7 +56,7 @@ font-size : 24px
 </head>
 <body>
 <script type="text/javascript">
-		location.href='preset1.jsp';
+location.href='preset1.jsp?name=<%=name%>';
 		</script>
 </body>
 

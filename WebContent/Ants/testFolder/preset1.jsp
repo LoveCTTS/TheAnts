@@ -9,6 +9,7 @@
 	Statement stmt = null;
 	ResultSet rs = null;
 	
+	String name = request.getParameter("name");
 	String x=null,y=null, evt=null;
 			
 	
@@ -61,8 +62,8 @@ body {
 		x = rs.getString("col_f");
 		}
 		%>
-		<script type="text/javascript">
-		location.href='preset2.jsp?x=<%=x%>&y=<%=y%>&evt=<%=evt%>';
+		<script type="text/javascript" hidden="">
+		location.href='preset2.jsp?x=<%=x%>&y=<%=y%>&evt=<%=evt%>&name=<%=name%>';
 		</script>
 		<%
 		

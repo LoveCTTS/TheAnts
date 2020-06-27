@@ -5,7 +5,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <% 
-    
+    String name = request.getParameter("name");
     
     String evt = request.getParameter("evt");
     String y = request.getParameter("y");
@@ -56,14 +56,20 @@ font-size : 24px
 <title>Insert title here</title>
 </head>
 <body>
-<form action="main.jsp" method="post">
-  <input type="hidden" name="<%=x %>" value="x">
-  <input type="hidden" name="<%=y %>" value="y">
+  <form id ="preset_over" action="main.jsp" method="post">
+  <input type="hidden" name="x" value="<%=x %>">
+  <input type="hidden" name="y" value="<%=y %>">
+  <input type="hidden" name="name" value="<%=name %>">
+  <input type="submit" value="Submit">
+</form>
+
+<form id ="chk_rst" action="timer.jsp" method="get">
+  <input type="hidden" name="chk_r" value= null>
   <input type="submit" value="Submit">
 </form>
 <script type="text/javascript">
-this.document.getElementById("sample_form").submit();
+this.document.getElementById("preset_over").submit();
+//this.document.getElementById("chk_rst").submit();
 </script>
 </body>
-
 </html>
