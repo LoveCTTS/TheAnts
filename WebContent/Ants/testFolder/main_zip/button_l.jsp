@@ -6,6 +6,11 @@
     
     String y = request.getParameter("y");
     String x = request.getParameter("x"); 
+    String count = request.getParameter("count"); 
+    String name = request.getParameter("name");
+    String rst = request.getParameter("starttime"); 
+	   
+    int count1 = Integer.parseInt(count); count1++;
     
     int y1 = Integer.parseInt(y);
 	int x1 = Integer.parseInt(x);
@@ -29,9 +34,14 @@ font-size : 24px
 </head>
 <body>
 left
-<form id ="button_l" action="http://localhost/poject_1/jdbc/main.jsp" method="post">
+<form id ="button_l" action="http://localhost/poject_1/jdbc/main.jsp" method="get">
   <input type="text" name="x" value="<%=x1 %>">
-  <input type="text" name="y" value="<%=y1 %>"><br>
+  <input type="text" name="y" value="<%=y1 %>">
+  <input type="text" name="count" value="<%=count1 %>">
+  <input type="text" name="name" value="<%=name %>">
+  <input type="hidden" name="starttime" value="<%=rst %>">
+  <input type="hidden" name="rst" value="<%=1 %>">
+  <br>
  <input type="submit" value = "main">
 </form>
 
