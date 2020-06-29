@@ -19,7 +19,7 @@ sql.append(" values(?,?)");
 	
 	try {// 서버 프로세스에 연결
 		Class.forName("oracle.jdbc.OracleDriver");
-		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "mproject1", "1234");
+		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "Ants", "1234");
 		pstmt = conn.prepareStatement(sql.toString());
 		pstmt.setString(1, user_id);
 		pstmt.setString(2, user_pw);

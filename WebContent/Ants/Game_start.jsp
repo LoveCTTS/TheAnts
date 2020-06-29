@@ -242,9 +242,10 @@ window.onkeyup=function(){
 
 <script type="text/javascript">
 alert('Clear!');
-location.href='ranking_w.jsp?name=<%=name%>&starttime=<%=starttime%>&endtime=<%=endtime%>&count=<%=count%>';
+location.href='Ranking_w.jsp?name=<%=name%>&starttime=<%=starttime%>&endtime=<%=endtime%>&count=<%=count%>';
 </script>
 </body>
+
 
 <%
 }
