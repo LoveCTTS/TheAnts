@@ -4,7 +4,7 @@
 <html>
 <head>
 <style>
-    body { padding:0px; margin:0px; }
+    body { background-image : url("oasis.jpg"); padding:0px; margin:0px; }
  
    #divPosition {  
      background-color : rgba(255,255,255,0.5);
@@ -24,7 +24,7 @@
 </head>
 <body>
 
-<img src="oasis.jpg">
+
 
 <div id="divPosition">
     

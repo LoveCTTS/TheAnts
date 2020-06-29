@@ -10,13 +10,15 @@
 <%
    int Place = 1; //랭킹 등수 표기를 위한 변수
    
-   String user_id = request.getParameter("user_id");
+  
+   String user_id = request.getParameter("name");
    Connection conn = null;
    Statement stmt = null;
    ResultSet rs = null;
    StringBuffer sql = new StringBuffer();
-   sql.append("select user_id, best_record, count");
-   sql.append(" from Ranking");
+   sql.append("select user_id, record, count");
+   sql.append(" from ranking ");
+   sql.append("order by record");
    try {
       Class.forName("oracle.jdbc.OracleDriver");
       conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "Ants", "1234");
@@ -42,6 +44,7 @@ body {
 </style>
 <style>
 body {
+	background-image : url("oasis.jpg");
    padding: 0px;
    margin: 0px;
 }
@@ -53,8 +56,8 @@ body {
    height: 570px;
    width: 700px;
    margin: -150px 0px 0px -200px;
-   top: 50%;
-   left: 50%;
+   top: 40%;
+   left: 40%;
    padding: 5px;
 }
 
@@ -65,7 +68,8 @@ body {
 
 <body>
 
-<img src="oasis.jpg">
+
+
 
    
 <div id="divPosition">
@@ -76,31 +80,42 @@ body {
      
    
     <center>
-   <table class="table table-bordered" border="2" background:black>
-   <tr align = "center" bgcolor="gold" class="lead" class = "text-white-Large">
+
+<table class="table table-bordered"  border="2" background:black>
+
+ <tr align = "center" bgcolor="gold" class="lead" class = "text-white-Large">
    
       <th>등수</th>
       <th>이름</th>
-      <th>기록</th>
+      <th>기     록</th>
       <th>이동 횟수</th>
    </tr>
-
+</table>
+<div style="overflow:auto; width:670px; height:300px;">
+   <table class="table table-bordered" bgcolor="white" border="2" background:black>
+  
 <%      while(rs.next()) { %>
-<tr align = "center" pclass = "lead">
+
+<tr align = "center" pclass = "lead" >
+
    <td><%=Place++ %></td> 
    <td><%=rs.getString("user_id") %></td>
-   <td><%=rs.getInt("best_record")/60 %>분 <%=rs.getInt("best_record")-(rs.getInt("best_record")/60)*60 %>초</td>
+   <td><%=rs.getInt("record")/60 %>분 <%=rs.getInt("record")-(rs.getInt("record")/60)*60 %>초</td>
    <td><%=rs.getInt("count") %>
 </tr>
 <%} %>
 
 
 </table>
+</div>
+
+
 </center>
-    <br><br><br><br><br><br><br><br><br><br><br>
+   <p>
         <%-- float-left--%>
     <form action="preset0.jsp" method = "post">
 			<input type="hidden" name ="name" value ="<%=user_id%>">
+			
   			<button type="submit" class="btn btn-success btn-block">게임시작</button>
   	</form>
    <form action = "Login_form.jsp">

@@ -17,6 +17,7 @@
 	
 	String b_record = null;
 	boolean result = false;
+
 	
 	StringBuffer sql = new StringBuffer();
 	sql.append(" select best_record ");
@@ -70,13 +71,13 @@ if(b_record_c > time_c){
 </form>
 
 <script type="text/javascript">
-this.document.getElementById("best_record_over").submit();
+this.document.getElementById("best_record_over").submit(); 
 </script>
 <% }
 else{
 	%>
 	
-<form action="ranking.jsp" method= "post" id = "best_record_over_r">
+<form action="Ranking.jsp" method= "get" id = "best_record_over_r">
   			<input type="hidden" name ="name" value ="<%=name%>" >
   			<input type="submit" value="Submit">
   			</form>

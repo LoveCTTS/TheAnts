@@ -6,7 +6,7 @@
     
     <%
     String name = request.getParameter("name");
-    String time = request.getParameter("time");
+    int time = Integer.parseInt(request.getParameter("time"));
     String count = request.getParameter("count");
     
     boolean result = false;
@@ -24,7 +24,7 @@
 		conn = DriverManager.getConnection(
 			"jdbc:oracle:thin:@localhost:1521:xe", "Ants", "1234");
 		pstmt= conn.prepareStatement(sql.toString());
-		pstmt.setString(1, time);
+		pstmt.setInt(1, time);
 		pstmt.setString(2, name);
 		if (pstmt.executeUpdate() > 0) {
 			result = true;
@@ -46,14 +46,14 @@ font-size : 24px
 <title>Insert title here</title>
 </head>
 <body>
-hi
+
 <form action="Ranking.jsp" method= "post" id = "best_record_over_r">
   			<input type="hidden" name ="name" value ="<%=name%>">
   			<input type="submit" value="Submit">
   			</form>
 
 <script type="text/javascript">
-this.document.getElementById("best_record_over_r").submit();
+this.document.getElementById("best_record_over_r").submit(); 
 </script>
 
 <%

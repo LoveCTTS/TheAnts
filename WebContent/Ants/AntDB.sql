@@ -32,3 +32,8 @@ sql.append("select i.user_id, r.best_record"); //띄어쓰기 잘했는지 보�
 select i.user_id, r.best_record 
 from info i inner join ranking r 
 on i.user_id='test' and i.user_pw='d404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db';
+
+
+select user_id,best_record
+from info
+where user_id = 'test1' and user_pw = 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db';

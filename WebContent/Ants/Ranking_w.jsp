@@ -44,8 +44,8 @@
    Connection conn = null;
    PreparedStatement pstmt = null;
    StringBuffer sql = new StringBuffer();
-   sql.append("insert into Ranking(user_id,count,Best_record,record)");
-   sql.append(" values(?,?,0,?)");
+   sql.append("insert into Ranking(user_id,count,record)");
+   sql.append(" values(?,?,?)");
    	
    	try {// 서버 프로세스에 연결
    		Class.forName("oracle.jdbc.OracleDriver");
@@ -96,7 +96,7 @@ body {
 </head>
 <body>
 
-<form action="Ranking.jsp" method= "post" id = "best_record_over_r">
+<form action="bestrecord_r.jsp" method= "get" id = "best_record_over_r">
   			<input type="hidden" name ="name" value ="<%=name%>" >
   			<input type="hidden" name ="count" value ="<%=count%>" >
   			<input type="hidden" name ="time" value ="<%=time%>" >

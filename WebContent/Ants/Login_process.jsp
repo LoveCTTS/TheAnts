@@ -20,6 +20,7 @@
 <link rel="icon" type="image/png" href="/favicon.png">
 <style>
 body {
+	background-image : url("oasis.jpg");
 	padding: 0px;
 	margin: 0px;
 }
@@ -40,16 +41,15 @@ body {
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-<img src="oasis.jpg">
 
 	<%
 	Connection conn = null;
 	PreparedStatement stm = null;
 	ResultSet rs = null;
 	StringBuffer sql = new StringBuffer();
-	sql.append("select i.user_id, r.best_record"); //띄어쓰기 잘했는지 보세요.
-	sql.append(" from info i inner join ranking r");
-	sql.append(" on i.user_id = ? and i.user_pw = ?");
+	sql.append("select user_id, best_record"); //띄어쓰기 잘했는지 보세요.
+	sql.append(" from info ");
+	sql.append("where user_id = ? and user_pw = ?");
 
 	try {// 서버 프로세스에 연결
 		Class.forName("oracle.jdbc.OracleDriver");
