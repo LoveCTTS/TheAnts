@@ -9,6 +9,7 @@
 	Statement stmt = null;
 	ResultSet rs = null;
 	
+	String name = request.getParameter("name");
 	String x=null,y=null, evt=null;
 			
 	
@@ -25,7 +26,7 @@ String user_row = null;
 try {
 
 	Class.forName("oracle.jdbc.OracleDriver");
-	conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "Ants", "a1234");
+	conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "Ants", "1234");
 	stmt = conn.createStatement();
 	rs = stmt.executeQuery(sql.toString());
 %>
@@ -61,8 +62,8 @@ body {
 		x = rs.getString("col_f");
 		}
 		%>
-		<script type="text/javascript">
-		location.href='preset2.jsp?x=<%=x%>&y=<%=y%>&evt=<%=evt%>';
+		<script type="text/javascript" hidden="">
+		location.href='preset2.jsp?x=<%=x%>&y=<%=y%>&evt=<%=evt%>&name=<%=name%>';
 		</script>
 		<%
 		

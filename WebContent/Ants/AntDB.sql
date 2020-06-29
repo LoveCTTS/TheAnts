@@ -22,3 +22,13 @@ on I.user_id = 'test' and I.user_pw = 'd404559f602eab6fd602ac7680dacbfaadd136303
 select * from info;
 
 select * from Ranking;
+
+select col_f, row_f from filed_2 where evt =1;
+
+sql.append("select i.user_id, r.best_record"); //띄어쓰기 잘했는지 보세요.
+	sql.append(" from info i inner join ranking r");
+	sql.append(" on user_id = ? and user_pw = ?"
+	
+select i.user_id, r.best_record 
+from info i inner join ranking r 
+on i.user_id='test' and i.user_pw='d404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db';

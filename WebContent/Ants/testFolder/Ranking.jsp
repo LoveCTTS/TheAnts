@@ -17,7 +17,7 @@
 	sql.append(" from Ranking");
 	try {
 		Class.forName("oracle.jdbc.OracleDriver");
-		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "mproject1", "1234");
+		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "Ants", "1234");
 		stmt = conn.createStatement();
 		rs = stmt.executeQuery(sql.toString());
 %>

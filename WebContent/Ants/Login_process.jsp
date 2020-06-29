@@ -47,13 +47,13 @@ body {
 	PreparedStatement stm = null;
 	ResultSet rs = null;
 	StringBuffer sql = new StringBuffer();
-	sql.append("select I.user_id, R.best_record"); //띄어쓰기 잘했는지 보세요.
-	sql.append(" from info I join ranking R");
-	sql.append(" on I.user_id = ? and I.user_pw = ?");
+	sql.append("select i.user_id, r.best_record"); //띄어쓰기 잘했는지 보세요.
+	sql.append(" from info i inner join ranking r");
+	sql.append(" on i.user_id = ? and i.user_pw = ?");
 
 	try {// 서버 프로세스에 연결
 		Class.forName("oracle.jdbc.OracleDriver");
-		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "mproject1", "1234");
+		conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "Ants", "1234");
 		stm = conn.prepareStatement(sql.toString());
 		stm.setString(1, user_id);
 		stm.setString(2, user_pw);
@@ -87,11 +87,13 @@ body {
 			
 			
 			
-			<form action="Game_start.jsp" method = "post">
+			<form action="preset0.jsp" method = "post">
+			<input type="hidden" name ="name" value ="<%=user_id%>">
   			<button type="submit" class="btn btn-success float-left">게임시작</button>
   			</form>
   			
   			<form action="Ranking.jsp" method= "post">
+  			<input type="hidden" name ="name" value ="<%=user_id%>">
   			<button type="submit" class="btn btn-warning float-right">랭킹</button>
   			</form>
 			
