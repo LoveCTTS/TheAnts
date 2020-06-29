@@ -67,7 +67,7 @@ body {
 
 
 			<center>
-			<h1>MENU</h1>
+			<h1 class="p-1 mb-2 bg-warning text-dark">MENU</h1>
 			</center>
 			<caption><center>
 				<%

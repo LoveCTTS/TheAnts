@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +7,7 @@
     body { padding:0px; margin:0px; }
  
    #divPosition {  
-     border: 1px solid #5D5D5D;
+     background-color : rgba(255,255,255,0.5);
      position:absolute;
      height:200px;
      width:300px;
@@ -29,44 +29,41 @@
 <div id="divPosition">
     
 <script>
-	function mySubmit(index){
-		if(index==1){
-			document.myForm.action='Login_process.jsp';
-		}
-		if(index==2){
-			document.myForm.action='Join_form.jsp';
-		}
-		document.myForm.submit();
-		
-	}
+   function mySubmit(index){
+      if(index==1){
+         document.myForm.action='Login_process.jsp';
+      }
+      if(index==2){
+         document.myForm.action='Join_form.jsp';
+      }
+      document.myForm.submit();
+      
+   }
 </script>
 
 <form name = 'myForm' method ='post'>
-	<table>
-		<div class="p-2 mb-2 bg-link text-dark"> <ion-icon name="bug-sharp"></ion-icon> The Ants Game. </div>  
-		<tr>
-			<th>아이디</th>
-			<td><input type ="text" name = "user_id" autofocus="autofocus" required="required"/></td>
-		</tr>
-		
-		<tr>
-			<th>비밀번호</th>
-			<td><input type ="password" name = "user_pw" required="required"/></td>
-		</tr>
-		
-		<tr>
-			<th></th>
-			<td><input type = 'button' onClick='mySubmit(1)' class = "btn btn-light" value="Login"/></td>
-			
-		</tr>
-		
-		<tr>
-		<th></th>
-		<td><input type = 'button' onClick='mySubmit(2)' class = "btn btn-light" value="Join"/></td>
-		</tr>
-
-	</table>
-
+   <table>
+      <div class="p-1 mb-2 bg-warning text-dark"> <ion-icon name="bug-sharp"></ion-icon> The Ants Game </div>  
+      <tr>
+         <th>아이디</th>
+         <td>
+         <input type ="text" class="form-control" name = "user_id" autofocus="autofocus" placeholder="ID입력" required="required"/></td>
+      </tr>
+      
+      <tr>
+         <th>비밀번호</th>
+         <td><input type ="password" class="form-control" name = "user_pw" placeholder="PW입력" required="required"/></td>
+      </tr>
+      
+   </table>
+      <center>
+      <tr>
+      <div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" onClick='mySubmit(1)' class="btn btn-success">Login</button>
+  <button type="button" onClick='mySubmit(2)' class="btn btn-warning">Join</button>
+      </div>
+      </tr>
+      </center>
 </form>
 </div>
 
