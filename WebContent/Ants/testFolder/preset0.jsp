@@ -5,9 +5,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <% 
-   // String name = request.getParameter("name");
+    String name = request.getParameter("name");
  	
-    String name = "test";
+   // String name = "test";
     
     String evt = "1";
   

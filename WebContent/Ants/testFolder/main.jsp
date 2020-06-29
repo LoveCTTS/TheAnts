@@ -83,7 +83,7 @@ body {
 
 <%
 	Date nowtime = new Date();
-	SimpleDateFormat sf = new SimpleDateFormat(" mm*60 + ss");
+	SimpleDateFormat sf = new SimpleDateFormat("hh:mm:ss");
 
 	String endtime = "0";
 	
