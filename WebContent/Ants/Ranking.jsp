@@ -31,6 +31,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+  $('html').css({'cursor':'url(Ant_cursor.png), auto'});
+
+
+
+</script>
 <meta charset="UTF-8">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link
@@ -62,7 +70,7 @@ body {
 }
 
 </style>
-<title>Insert title here</title>
+<title>Ranking</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 

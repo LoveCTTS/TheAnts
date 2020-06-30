@@ -16,6 +16,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+  $('html').css({'cursor':'url(Ant_cursor.png), auto'});
+
+
+
+</script>
 <meta charset="UTF-8">
 <link rel="icon" type="image/png" href="/favicon.png">
 <style>
@@ -37,10 +45,11 @@ body {
 	padding: 5px;
 }
 </style>
-<title>Insert title here</title>
+<title>Menu</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
+
 
 	<%
 	Connection conn = null;
@@ -80,8 +89,14 @@ body {
 				
   				<center><h1 class="lead">최고기록 </h1></center>
   				<br>
-  				<center><h1 class = "text-primary display-4"><%=rs.getInt("best_record")/60 %>분 <%=rs.getInt("best_record")-(rs.getInt("best_record")/60)*60 %>초</h1></center>
+  				<%if(rs.getInt("best_record") != 999999){ %>
   				
+  				<center><h1 class = "text-danger display-4"><%=rs.getInt("best_record")/60 %>분 <%=rs.getInt("best_record")-(rs.getInt("best_record")/60)*60 %>초</h1></center>
+  				
+  				
+  				<%} else{  %><center><h1 class="text-primary display-4"> 기록없음 </h1> </center><% }%>
+  				
+  			
 		
 			<br><br><br><br>
 			

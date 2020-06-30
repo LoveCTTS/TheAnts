@@ -48,7 +48,7 @@ body {
 	ResultSet rs = null;
 	StringBuffer sql = new StringBuffer();
 	sql.append("select user_id, best_record"); //띄어쓰기 잘했는지 보세요.
-	sql.append(" from info I ");
+	sql.append(" from info ");
 	sql.append(" where user_id = ? and user_pw = ?");
 
 	try {// 서버 프로세스에 연결

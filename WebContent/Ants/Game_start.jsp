@@ -88,25 +88,35 @@ try {
    #divPosition3 {  
      background-color : rgba(255,255,255,0.4);
      position:absolute;
-     height:300px;
+     height: 300px;
      width:300px;
      margin:-150px 0px 0px -200px;
-     top: 50%;
+     top: 55%;
      left: 270%;
      padding: 5px;
    }
     #divPosition4{  
      background-color : rgba(255,255,255,0.4);
      position:absolute;
-     height:700px;
-     width:850px;
+     height:670px;
+     width:900px;
      margin:-150px 0px 0px -200px;
      top: 55%;
-     left: -65%;
+     left: -60%;
      padding: 5px;
    }
+  
+   
 
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+  $('html').css({'cursor':'url(Ant_work.png), auto'});
+
+
+
+</script>
 <meta charset="UTF-8">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link
@@ -118,17 +128,16 @@ body {
 	font-size: 24px
 }
 </style>
-<title>Main</title>
+<title>Game</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-<div id="divPosition1">
-
 <!------------------------------------------------------------------------------>
 <!------------------------------------------------------------------------------>
 <!---------------------------------------타이머 ---------------------------------->
 <!------------------------------------------------------------------------------>
 <!------------------------------------------------------------------------------>
-
+<div id="divPosition1">
 <%
 	Date nowtime = new Date();
 	SimpleDateFormat sf = new SimpleDateFormat("hh:mm:ss");
@@ -196,16 +205,54 @@ history.go(-1);
 </div>
 <!------------------------------------------------------------------------------>
 <!------------------------------------------------------------------------------>
-<!---------------------------------------임시 출력 화면 ---------------------------------->
+<!---------------------------------------임시 출력 화면 ------------------------>
 <!------------------------------------------------------------------------------>
 <!------------------------------------------------------------------------------>
 
 <div id = "divPosition3">
-<h2>ID : <%=name_c%></h1>
-<h2>Count :<%=count_c %></h1>
-<h2>시작시간 : <%=starttime %></h1><br> 
+<h2 class = "text-secondary">ID : <%=name_c%></h2><br>
+<h2 class = "text-danger">Count :<%=count_c %></h2><br>
+<h2 class = "text-info">시작시간 : <%=starttime %></h2><br>
 <input type = "hidden" name="count" value="<%=count_c %> "><br>
+
+<center>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#Ants">
+  게임 설명서
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="Ants" tabindex="-1" role="role" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">게임설명</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+     <img src = "Map.png"><br>
+     1. 시작버튼을 누르면 랜덤 위치에 개미(유저) 배정 <br> 2. 사과와 가까운 위치에는 배정되지 않음 <br>
+     3. 개미는 한 칸씩 이동 합니다. <br> 4. 테이블의 경계를 넘어가려고하면, 특정 방향키가 사라집니다. <br>
+     5. 목표와의 거리에 따라 힌트를 제공합니다. <br> 6. 지나갈수 없는 길과 끈끈이(count +5)가 있어 목표달성을 방해합니다. <br>
+     8. 총 시간을 측정하여 랭킹을 제공합니다.
+     
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
+</center>
+
+</div>
+
+
+
+
+
 <!------------------------------------------------------------------------------>
 <!------------------------------------------------------------------------------>
 <!---------------------------------------버튼액션 ---------------------------------->
@@ -226,10 +273,11 @@ history.go(-1);
   <br>
   <% if (!((wal_c == 10)&&(y_c == 19))){ // 위 side에 가면 버튼 사라짐 %>
 
- <input  TYPE="IMAGE" src="up.jpg" name="Submit" value="Submit" >
+ <input  TYPE="IMAGE" src="up.png" name="Submit" value="Submit" >
 
  <%} %>
 </form>
+
 </td>
 <td></td>
 </tr>
@@ -243,7 +291,7 @@ history.go(-1);
   <input type="hidden" name="name" value="<%=name %>">
   <input type="hidden" name="starttime" value="<%=starttime %>">
 <% if (!((wal_c == 10)&&(x_c == 1))){ // 왼쪽 side에 가면 버튼 사라짐 %>
- <input  TYPE="IMAGE" src="left.jpg" name="Submit" value="Submit" >
+ <input  TYPE="IMAGE" src="left.png" name="Submit" value="Submit" >
 <% }%>
 </form>
 </td>
@@ -255,7 +303,7 @@ history.go(-1);
   <input type="hidden" name="name" value="<%=name %>">
   <input type="hidden" name="starttime" value="<%=starttime %>">
 <% if (!((wal_c == 10)&&(y_c == 1))){ // 아래 side에 가면 버튼 사라짐 %>
- <input  TYPE="IMAGE" src="down.jpg" name="Submit" value="Submit" >
+ <input  TYPE="IMAGE" src="down.png" name="Submit" value="Submit" >
 
 <%} %>
 </form>
@@ -270,7 +318,7 @@ history.go(-1);
   <input type="hidden" name="name" value="<%=name %>">
   <input type="hidden" name="starttime" value="<%=starttime %>">
   <% if (!((wal_c == 10)&&(x_c == 19))){ // 오른쪽 side에 가면 버튼 사라짐 %>
- <input  TYPE="IMAGE" src="right.jpg" name="Submit" value="Submit" >
+ <input  TYPE="IMAGE" src="right.png" name="Submit" value="Submit" >
  <%} %>
 </form>
 </td>
@@ -312,7 +360,8 @@ window.onkeyup=function(){
 alert('Clear!');
 location.href='Ranking_w.jsp?name=<%=name%>&starttime=<%=starttime%>&endtime=<%=endtime%>&count=<%=count%>';
 </script>
-</body>
+
+</div>
 
 
 <%
@@ -339,6 +388,15 @@ location.href='Ranking_w.jsp?name=<%=name%>&starttime=<%=starttime%>&endtime=<%=
 	}
 	
 	%>
+	
+<script src="https://unpkg.com/ionicons@5.1.0/dist/ionicons.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+
+
+
 
 
 </html>

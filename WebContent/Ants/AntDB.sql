@@ -37,3 +37,7 @@ on i.user_id='test' and i.user_pw='d404559f602eab6fd602ac7680dacbfaadd13630335e9
 select user_id,best_record
 from info
 where user_id = 'test1' and user_pw = 'd404559f602eab6fd602ac7680dacbfaadd13630335e951f097af3900e9de176b6db28512f2e000b9d04fba5133e8b1c6e8df59db3a8ab9d60be4b97cc9e81db';
+
+delete from Ranking;
+
+select * from info;
